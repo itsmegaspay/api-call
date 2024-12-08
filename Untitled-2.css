@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+p {
+  font-family: sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.all-pokemon-container {
+  background-color: #dbdbdb;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 80vh;
+  overflow: scroll;
+  padding: 20px;
+  position: relative;
+  width: 60vw;
+  
+  img {
+    grid-column: span 1;
+    width: 100%;
+  }
+  
+  img:hover {
+    cursor: pointer;
+  }  
+  
+}
+
+.stats-container {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  position: relative;
+  
+  .pokemon-container,
+  .pre-evo-container,
+  .next-evo-container {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    width: 30vw;
+    overflow: hidden;
+  }
+
+  .pokemon-container {
+    height: calc(80vh - 70px);
+
+    .pokemon-name {
+      margin: 10 0 10px 0;
+    }
+
+    .pokemon-type {
+      font-size: 24px;
+      font-weight: 300;
+      margin: 0 10px;
+    }
+
+    .pokemon-moves-text {
+      color: rgba(0, 0, 0, 0.3);
+      font-size: 14px;
+    }
+
+    .pokemon-img-container {
+      left: 0%;
+      position: absolute;
+      top: 150px;
+      width: 100%;
+
+      img {
+        width: 37%;
+      }
+    }
+  }
+
+  .pokemon-container::after {
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    content: '';
+    display: block;
+    height: 15%;
+    position: absolute;
+    top: 85%;
+    width: 100%;
+  }
+
+  .pre-evo-container {
+    justify-content: flex-start;
+    padding-right: 14px;
+  }
+
+  .next-evo-container {
+    justify-content: flex-end;
+    padding-left: 14px;
+  }  
+    
+  .pre-evo-container,
+  .next-evo-container {
+    border-top: 1px solid black;
+    display: flex;
+    height: 70px;
+    padding: 0;
+
+    .evolution-desc {
+      align-self: center;
+      font-family: sans-serif;
+      font-weight: 300;
+      margin-left: 14px;
+      white-space: pre-wrap;
+    }
+
+    .evolution-name {
+      align-self: center;
+      font-family: 'Anton', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: capitalize;
+    }
+
+    .pre-evo-img,
+    .next-evo-img {
+      height: 70px;
+      width: 70px;
+    }
+
+    [data-is-disabled="true"] {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    [data-is-disabled="false"]:hover {
+      cursor: pointer;
+    }
+  }
+}
